@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import InquiryList from "../components/InquiryList";
 import StadiumForm from "../components/StadiumForm";
+import StadiumList from "../components/StadiumList";
 import UserList from "../components/UserList";
 
 export default function AdminPage() {
     const [tab, setTab] = useState("inquiry");
+    const [refresh, setRefresh] = useState(0); // 경기장 등록/삭제 시 목록 새로고침용
 
     return (
         <div className="container mt-5">
@@ -16,7 +18,12 @@ export default function AdminPage() {
             </div>
             <div>
                 {tab === "inquiry" && <InquiryList />}
-                {tab === "stadium" && <StadiumForm />}
+                {tab === "stadium" &&
+                    <div>
+                        <StadiumForm onComplete={() => setRefresh(r => r + 1)} />
+                        <StadiumList key={refresh} />
+                    </div>
+                }
                 {tab === "user" && <UserList />}
             </div>
         </div>
