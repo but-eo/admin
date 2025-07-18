@@ -8,7 +8,8 @@ export default defineConfig({
       '/api': 'http://localhost:714',
       '/users': 'http://localhost:714',
       '/inquiry': 'http://localhost:714',
-      '/stadium': 'http://localhost:714'
+      '/stadium': 'http://localhost:714',
+      '/board': 'http://localhost:714'
     }
   }
 })

@@ -4,6 +4,7 @@ import StadiumForm from "../components/StadiumForm";
 import StadiumList from "../components/StadiumList";
 import UserList from "../components/UserList";
 import ChatRoomList from "../components/ChatRoomList.jsx";
+import BoardList from "../components/BoardList.jsx";
 
 export default function AdminPage() {
     const [tab, setTab] = useState("inquiry");
@@ -27,12 +28,14 @@ export default function AdminPage() {
                 <button onClick={() => setTab("stadium")} className={`btn btn-outline-primary me-2 ${tab === "stadium" ? "active" : ""}`}>경기장등록</button>
                 <button onClick={() => setTab("user")} className={`btn btn-outline-primary me-2 ${tab === "user" ? "active" : ""}`}>유저관리</button>
                 <button onClick={() => setTab("chat")} className={`btn btn-outline-primary me-2 ${tab === "chat" ? "active" : ""}`}>채팅방관리</button>
+                <button onClick={() => setTab("board")} className={`btn btn-outline-primary me-2 ${tab === "board" ? "active" : ""}`}>게시판관리</button>
             </div>
             <div>
                 {tab === "inquiry" && <InquiryList />}
                 {tab === "stadium" &&  <StadiumList key={refresh} /> }
                 {tab === "user" && <UserList />}
                 {tab === "chat" && <ChatRoomList />}
+                {tab === "board" && <BoardList />}
             </div>
         </div>
     );
