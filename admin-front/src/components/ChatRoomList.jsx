@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const API_HOST = "http://192.168.75.252:714";
+const API_HOST = "http://192.168.0.69:714";
 
 export default function ChatRoomList() {
     const [chatRooms, setChatRooms] = useState([]);

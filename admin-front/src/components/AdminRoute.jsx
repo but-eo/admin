@@ -3,7 +3,10 @@ import { Navigate } from "react-router-dom";
 
 export default function AdminRoute({ children }) {
     const jwt = localStorage.getItem("jwt");
-    if (!jwt) return <Navigate to="/login" replace />;
-    // division도 같이 저장해놨다면 여기서도 체크 가능(추후 확장)
+    if (!jwt) {
+        // JWT 토큰이 없으면 로그인 페이지로 리디렉션
+        return <Navigate to="/login" replace />;
+    }
+    // 토큰이 있으면 자식 컴포넌트(AdminPage)를 렌더링
     return children;
 }
