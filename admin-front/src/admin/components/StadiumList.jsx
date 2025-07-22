@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import StadiumForm from "./StadiumForm";
+import StadiumForm from "./StadiumForm.jsx";
 
 const API_HOST = "http://localhost:714";
 

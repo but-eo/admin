@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import InquiryDetail from "./InquiryDetail";
+import InquiryDetail from "./InquiryDetail.jsx";
 
 export default function InquiryList() {
     const [list, setList] = useState([]);

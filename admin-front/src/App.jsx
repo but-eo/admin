@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LoginPage from "./pages/LoginPage";
-import AdminPage from "./pages/AdminPage";
-import AdminRoute from "./components/AdminRoute";
+import LoginPage from "./auth/pages/LoginPage";
+import AdminPage from "./auth/pages/AdminPage";
+import AdminRoute from "./admin/components/AdminRoute";
 
 export default function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/login" element={<LoginPage />} />
+                <Route path="/" element={<LoginPage />} />
                 <Route
                     path="/admin"
                     element={
