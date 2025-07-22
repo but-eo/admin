@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Sidebar from "../components/Sidebar";
-import InquiryList from "../components/InquiryList";
-import StadiumList from "../components/StadiumList";
-import UserList from "../components/UserList";
-import ChatRoomList from "../components/ChatRoomList";
-import BoardList from "../components/BoardList";
+import Sidebar from "../../admin/components/Sidebar.jsx";
+import InquiryList from "../../admin/components/InquiryList.jsx";
+import StadiumList from "../../admin/components/StadiumList.jsx";
+import UserList from "../../admin/components/UserList.jsx";
+import ChatRoomList from "../../admin/components/ChatRoomList.jsx";
+import BoardList from "../../admin/components/BoardList.jsx";
 
 // 각 탭에 해당하는 컴포넌트를 매핑
 const components = {
