@@ -1,37 +1,56 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import Sidebar from "../../admin/components/Sidebar.jsx";
-import InquiryList from "../../admin/components/InquiryList.jsx";
-import StadiumList from "../../admin/components/StadiumList.jsx";
-import UserList from "../../admin/components/UserList.jsx";
-import ChatRoomList from "../../admin/components/ChatRoomList.jsx";
-import BoardList from "../../admin/components/BoardList.jsx";
-
-// 각 탭에 해당하는 컴포넌트를 매핑
-const components = {
-    inquiry: <InquiryList />,
-    stadium: <StadiumList />,
-    user: <UserList />,
-    chat: <ChatRoomList />,
-    board: <BoardList />,
-};
 
 export default function AdminPage() {
+    const navigate = useNavigate();
+    const location = useLocation();
     const [activeTab, setActiveTab] = useState("inquiry");
+
+    useEffect(() => {
+        const path = location.pathname;
+        if (path.includes("/admin/users")) {
+            setActiveTab("user");
+        } else if (path.includes("/admin/stadium")) {
+            setActiveTab("stadium");
+        } else if (path.includes("/admin/inquiry")) {
+            setActiveTab("inquiry");
+        } else if (path.includes("/admin/chat")) {
+            setActiveTab("chat");
+        } else if (path.includes("/admin/board")) {
+            setActiveTab("board");
+        } else if (path === "/admin") {
+            setActiveTab("inquiry");
+        }
+    }, [location.pathname]);
+
+    const handleTabClick = (tabName) => {
+        setActiveTab(tabName);
+        if (tabName === "inquiry") {
+            navigate("/admin/inquiry");
+        } else if (tabName === "stadium") {
+            navigate("/admin/stadium");
+        } else if (tabName === "user") {
+            navigate("/admin/users");
+        } else if (tabName === "chat") {
+            navigate("/admin/chat");
+        } else if (tabName === "board") {
+            navigate("/admin/board");
+        }
+
+    };
 
     const handleLogout = () => {
         localStorage.removeItem("jwt");
-        window.location.href = "/login";
+        window.location.href = "/";
     };
 
     return (
         <div className="d-flex" style={{ minHeight: '100vh' }}>
-            {/* 사이드바 컴포넌트 */}
-            <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} onLogout={handleLogout} />
+            <Sidebar activeTab={activeTab} setActiveTab={handleTabClick} onLogout={handleLogout} />
 
-            {/* 메인 컨텐츠 영역 */}
             <main className="flex-grow-1 p-4" style={{ backgroundColor: '#f8f9fa' }}>
-                {/* 현재 활성화된 탭에 맞는 컴포넌트를 렌더링 */}
-                {components[activeTab]}
+                <Outlet />
             </main>
         </div>
     );
