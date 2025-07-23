@@ -1,0 +1,81 @@
+/* UserDetail.module.css */
+.container {
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.title {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.detailItem {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.detailItem strong {
+    color: #555;
+    margin-right: 5px;
+}
+
+.backButton {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 1em;
+    margin-bottom: 15px;
+    padding: 5px 0;
+}
+
+.backButton:hover {
+    text-decoration: underline;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    font-weight: bold;
+}
+
+.actionButtons {
+    margin-top: 25px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.suspendButton {
+    background-color: #dc3545; /* Red */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.suspendButton:hover {
+    background-color: #c82333;
+}
+
+.activateButton {
+    background-color: #28a745; /* Green */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.activateButton:hover {
+    background-color: #218838;
+}
