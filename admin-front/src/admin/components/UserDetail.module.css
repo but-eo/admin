@@ -1,81 +1,266 @@
-/* UserDetail.module.css */
+/* src/admin/components/UserDetail/UserDetail.module.css */
 .container {
-    padding: 20px;
-    max-width: 600px;
-    margin: 20px auto;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-}
-
-.title {
-    color: #333;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.detailItem {
-    margin-bottom: 10px;
-    font-size: 1.1em;
-}
-
-.detailItem strong {
-    color: #555;
-    margin-right: 5px;
+    padding: 30px; /* 내부 여백 */
+    background-color: #f8f9fa; /* 배경색 */
+    border-radius: 12px; /* 모서리 둥글게 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    max-width: 800px; /* 최대 너비 */
+    margin: 40px auto; /* 중앙 정렬 */
+    font-family: 'Pretendard', 'Segoe UI', sans-serif; /* 폰트 */
 }
 
 .backButton {
-    background: none;
-    border: none;
-    color: #007bff;
-    cursor: pointer;
-    font-size: 1em;
-    margin-bottom: 15px;
-    padding: 5px 0;
+    background-color: #e9ecef; /* 연한 회색 배경 */
+    color: #495057; /* 글자색 */
+    border: 1px solid #ced4da; /* 테두리 */
+    padding: 10px 18px; /* 내부 여백 */
+    border-radius: 8px; /* 모서리 둥글게 */
+    cursor: pointer; /* 커서 변경 */
+    margin-bottom: 25px; /* 아래 여백 */
+    transition: all 0.2s ease; /* 부드러운 전환 */
+    font-size: 15px; /* 폰트 크기 */
 }
 
 .backButton:hover {
-    text-decoration: underline;
+    background-color: #dee2e6; /* 호버 시 색상 변경 */
+    border-color: #adb5bd;
 }
 
-.error {
-    color: red;
-    text-align: center;
-    font-weight: bold;
+.title {
+    color: #28a745; /* 메인 연두색 */
+    font-size: 28px; /* 제목 크기 */
+    font-weight: 700; /* 제목 굵기 */
+    margin-bottom: 30px; /* 아래 여백 */
+    text-align: center; /* 가운데 정렬 */
+    border-bottom: 2px solid #e0e0e0; /* 하단 구분선 */
+    padding-bottom: 15px; /* 구분선 아래 여백 */
+}
+
+.detailContainer {
+    background-color: white; /* 배경색 */
+    padding: 25px; /* 내부 여백 */
+    border: 1px solid #dee2e6; /* 테두리 */
+    border-radius: 8px; /* 모서리 둥글게 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* 그림자 */
+    margin-bottom: 25px; /* 아래 여백 */
+}
+
+.detailItem {
+    display: flex; /* Flexbox로 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    margin-bottom: 15px; /* 아래 여백 */
+    padding-bottom: 12px; /* 하단 여백 */
+    border-bottom: 1px dashed #e9ecef; /* 점선 구분선 */
+}
+
+.detailItem:last-child {
+    border-bottom: none; /* 마지막 항목 하단 테두리 없음 */
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.detailItem strong {
+    font-weight: 600; /* 폰트 굵기 */
+    color: #343a40; /* 글자색 */
+    width: 140px; /* 라벨 너비 고정 */
+    flex-shrink: 0; /* 라벨 너비 고정 유지 */
+    margin-right: 20px; /* 라벨과 값 사이 간격 */
+    font-size: 16px;
+}
+
+.detailItem span {
+    color: #495057; /* 값 글자색 */
+    font-size: 16px;
+    word-break: break-all; /* 긴 텍스트 줄바꿈 */
 }
 
 .actionButtons {
-    margin-top: 25px;
-    display: flex;
-    gap: 10px;
-    justify-content: center;
+    display: flex; /* Flexbox로 정렬 */
+    gap: 12px; /* 버튼 간 간격 */
+    justify-content: flex-end; /* 오른쪽 정렬 */
+    margin-top: 30px; /* 위 여백 */
 }
 
-.suspendButton {
-    background-color: #dc3545; /* Red */
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
+.editButton,
+.deleteButton,
+.permanentDeleteButton,
+.activateButton,
+.saveButton,
+.cancelButton {
+    color: white; /* 글자색 */
+    border: none; /* 테두리 없음 */
+    padding: 12px 22px; /* 내부 여백 */
+    border-radius: 8px; /* 모서리 둥글게 */
+    cursor: pointer; /* 커서 변경 */
+    font-size: 16px; /* 폰트 크기 */
+    font-weight: 600; /* 폰트 굵기 */
+    transition: background-color 0.2s ease, transform 0.1s ease; /* 부드러운 전환 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 버튼 그림자 */
 }
 
-.suspendButton:hover {
+.editButton {
+    background-color: #007bff; /* 파란색 */
+}
+
+.editButton:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px); /* 살짝 위로 이동 */
+}
+
+.deleteButton {
+    background-color: #dc3545; /* 빨간색 (주로 정지/논리적 삭제) */
+}
+
+.deleteButton:hover {
     background-color: #c82333;
+    transform: translateY(-1px);
+}
+
+.permanentDeleteButton {
+    background-color: #6c757d; /* 회색 (영구 삭제) */
+}
+
+.permanentDeleteButton:hover {
+    background-color: #5a6268;
+    transform: translateY(-1px);
 }
 
 .activateButton {
-    background-color: #28a745; /* Green */
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
+    background-color: #28a745; /* 연두색 (정지 해제) */
 }
 
 .activateButton:hover {
     background-color: #218838;
+    transform: translateY(-1px);
+}
+
+.saveButton {
+    background-color: #007bff; /* 파란색 (저장) */
+}
+
+.saveButton:hover:not(:disabled) {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+.saveButton:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.cancelButton {
+    background-color: #6c757d; /* 회색 (취소) */
+}
+
+.cancelButton:hover {
+    background-color: #5a6268;
+    transform: translateY(-1px);
+}
+
+/* 수정 폼 스타일 */
+.editForm {
+    background-color: white;
+    padding: 25px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 25px;
+}
+
+.formGroup {
+    margin-bottom: 18px;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #343a40;
+    font-size: 15px;
+}
+
+.inputField,
+.fileInput {
+    width: calc(100% - 24px); /* 패딩 고려 */
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    box-sizing: border-box; /* 패딩과 보더가 너비에 포함되도록 */
+    font-size: 15px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.inputField:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.currentProfile {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.currentProfile p {
+    margin-bottom: 10px;
+    color: #666;
+    font-size: 14px;
+}
+
+.profilePreview {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* 원형 */
+    object-fit: cover;
+    border: 2px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.error {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 20px auto;
+    }
+    .backButton {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+    .title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    .detailContainer, .editForm {
+        padding: 15px;
+    }
+    .detailItem strong {
+        width: 100px;
+        font-size: 15px;
+        margin-right: 10px;
+    }
+    .detailItem span {
+        font-size: 15px;
+    }
+    .actionButtons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .editButton, .deleteButton, .permanentDeleteButton, .activateButton, .saveButton, .cancelButton {
+        width: 100%;
+        padding: 10px;
+        font-size: 15px;
+    }
 }
