@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import apiClient from "../api/index.js"; // API 클라이언트 사용
+import apiClient from "../api/apiClient.js"; // API 클라이언트 사용
 import styles from './AdminLogin.module.css'; // CSS 모듈
 
 export default function AdminLogin() {

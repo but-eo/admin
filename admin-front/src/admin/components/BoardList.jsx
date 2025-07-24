@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import apiClient from "../../api/index.js";
+import apiClient from "../../api/apiClient.js";
 
 export default function BoardList() {
     const [boards, setBoards] = useState([]);
