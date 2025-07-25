@@ -49,7 +49,7 @@ export default function InquiryList() {
                     {list.map(i => (
                         <tr key={i.inquiryId}>
                             <td>{i.title}</td>
-                            <td>{i.userName}</td>
+                            <td>{i.writerName}</td>
                             <td>{i.createdAt?.slice(0, 10)}</td>
                             <td>{i.answerContent && i.answerContent.trim() !== "" ? "답변완료" : "대기"}</td>
                             <td>

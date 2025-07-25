@@ -5,11 +5,11 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': 'http://localhost:714',
-      '/users': 'http://localhost:714',
-      '/inquiry': 'http://localhost:714',
-      '/stadium': 'http://localhost:714',
-      '/board': 'http://localhost:714'
+      '/api': 'http://13.125.250.158:714',
+      '/users': 'http://13.125.250.158:714',
+      '/inquiry': 'http://13.125.250.158:714',
+      '/stadium': 'http://13.125.250.158:714',
+      '/board': 'http://13.125.250.158:714'
     }
   }
 })

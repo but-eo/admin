@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import StadiumForm from "./StadiumForm.jsx";
 
-const API_HOST = "http://localhost:714";
+const API_HOST = "http://13.125.250.158:714";
 
 export default function StadiumList() {
     const [list, setList] = useState([]);
